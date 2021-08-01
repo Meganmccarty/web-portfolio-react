@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Button, Card, Icon, Image } from 'semantic-ui-react'
 
 function Body() {
     const [projects, setProjects] = useState([])
@@ -12,26 +13,39 @@ function Body() {
 
     const displayProjects = projects.map(project => {
         return (
-            <div key={project.id}>
-                <h1>{project.name}</h1>
-                <img className="project-image" src={project.image} alt={project.text}></img>
-                <h4>{project.text}</h4>
-                <a href={project.url}><button>Live Website</button></a>
-                <span>Likes: {project.likes}</span>
-                {project.tags.map(tag => {
-                    return (
-                        <div key={tag.id}>
-                            <span>{tag.name}</span>
+            <Card key={project.id}>
+                <Image src={project.image} />
+                <Card.Content>
+                    <Card.Header>{project.name}</Card.Header>
+                    <Card.Description>{project.text}</Card.Description>
+                    <Card.Meta>
+                        <div className="tag-list">
+                            {project.tags.map(tag => {
+                                return (
+
+                                    <span className="tag">{tag.name}</span>
+
+                                )
+                            })}
                         </div>
-                    )
-                })}
-            </div>
+                    </Card.Meta>
+                </Card.Content>
+                <Card.Content extra>
+                    <a>
+                        <Icon name='like' />
+                        {project.likes}
+                    </a>
+                    <a href={project.url}><Button className="blue-button">Live Website</Button></a>
+                </Card.Content>
+            </Card>
         )
     })
-    
+
     return (
         <main>
-            {displayProjects}
+            <Card.Group centered fluid="true">
+                {displayProjects}
+            </Card.Group>
         </main>
     )
 }

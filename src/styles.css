@@ -24,9 +24,58 @@ nav ul li a:hover {
     border-radius: 15px;
 }
 
+main {
+    padding-bottom: 80px;
+    background-color: rgb(240, 237, 230);
+}
+
+div.ui.centered.cards > div.ui.card {
+    margin: 20px;
+}
+
 .project-image {
     width: 100%;
     max-width: 400px;
+}
+
+.tag-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.tag {
+    background-color: rgb(86, 161, 29);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+}
+
+.ui.card>div.extra.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.ui.card>div.extra.content a {
+    margin-left: 0px;
+    margin-right: 15px;
+}
+
+main button.ui.button.blue-button {
+    background-color: rgb(53, 83, 138);
+    color: white;
+    margin-right: 0;
+}
+
+main button.ui.button.blue-button:hover {
+    background-color: rgb(13, 43, 98);
+    color: white;
 }
 
 footer {
