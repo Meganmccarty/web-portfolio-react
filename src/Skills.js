@@ -29,7 +29,7 @@ function Skills() {
     return (
         <>
             <h1 id="Skills">Skills</h1>
-            <div class="skills">
+            <div className="skills">
                 {displaySkills}
             </div>
         </>
