@@ -29,10 +29,29 @@ main {
     background-color: rgb(240, 237, 230);
 }
 
-main h1 {
+main > h1 {
     text-align: center;
     background-color: rgb(165, 185, 208);
     padding: 20px;
+}
+
+main > section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main > section > h1, main > section > h2 {
+    margin-top: 5px;
+}
+
+main > section > img {
+    width: 20%;
+    max-width: 200px;
+    border-radius: 100px;
+    box-shadow: 5px 5px 10px rgb(100, 100, 100);
+    margin-top: 20px;
 }
 
 div.ui.centered.cards > div.ui.card {
