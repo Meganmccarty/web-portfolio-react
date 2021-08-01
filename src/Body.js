@@ -1,12 +1,14 @@
 import PhotoCard from './PhotoCard';
 import Projects from './Projects';
-import BlogList from './BlogList'
+import Skills from './Skills';
+import BlogList from './BlogList';
 
 function Body() {
     return (
         <main>
             <PhotoCard />
             <Projects />
+            <Skills />
             <BlogList />
         </main>
     )
