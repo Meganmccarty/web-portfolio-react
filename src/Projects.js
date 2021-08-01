@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Button, Card, Icon, Image } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
+
+import ProjectCard from './ProjectCard';
 
 function Projects() {
     const [projects, setProjects] = useState([])
@@ -7,33 +9,38 @@ function Projects() {
     useEffect(() => {
         fetch('http://localhost:9393/projects')
             .then(response => response.json())
-            .then(data => setProjects(data.projects))
+            .then(data => {
+                console.log(data.projects)
+                setProjects(data.projects)
+            })
             .catch(error => console.log(error))
     }, [])
 
+    function handlePatch(updatedProject) {
+        const newProjectArray = projects.map(project => {
+            if (project.id === updatedProject.project.id) {
+                return updatedProject.project
+            } else {
+                return project
+            }
+        })
+        console.log(newProjectArray);
+        setProjects(newProjectArray);
+    }
+
     const displayProjects = projects.map(project => {
         return (
-            <Card key={project.id}>
-                <Image src={project.image} />
-                <Card.Content>
-                    <Card.Header>{project.name}</Card.Header>
-                    <Card.Description>{project.text}</Card.Description>
-                    <Card.Meta>
-                        <div className="tag-list">
-                            {project.tags.map(tag => {
-                                return (
-                                    <span key={tag.name} className="tag">{tag.name}</span>
-                                )
-                            })}
-                        </div>
-                    </Card.Meta>
-                </Card.Content>
-                <Card.Content extra>
-                    <Icon name='like'/>
-                    <span>{project.likes}</span>
-                    <a href={project.url}><Button className="blue-button">Live Website</Button></a>
-                </Card.Content>
-            </Card>
+            <ProjectCard
+                key={project.id}
+                id={project.id}
+                name={project.name}
+                image={project.image}
+                text={project.text}
+                url={project.url}
+                likes={project.likes}
+                tags={project.tags}
+                onPatch={handlePatch}
+            />
         )
     })
     
