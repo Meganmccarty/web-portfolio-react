@@ -1,8 +1,8 @@
-function SkillCard({ id, name, image }) {
+function SkillCard({ name, image }) {
     return (
-        <div class="skill-icon">
+        <div className="skill-icon">
             <img src={image} alt={`${name} logo`}></img>
-            <h3 class="skill-title">{name}</h3>
+            <h3 className="skill-title">{name}</h3>
         </div>
     )
 }

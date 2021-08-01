@@ -20,7 +20,6 @@ function Skills() {
         return (
             <SkillCard
                 key={skill.id}
-                id={skill.id}
                 name={skill.name}
                 image={skill.image}
             />
