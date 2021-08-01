@@ -22,19 +22,15 @@ function Projects() {
                         <div className="tag-list">
                             {project.tags.map(tag => {
                                 return (
-
-                                    <span className="tag">{tag.name}</span>
-
+                                    <span key={tag.name} className="tag">{tag.name}</span>
                                 )
                             })}
                         </div>
                     </Card.Meta>
                 </Card.Content>
                 <Card.Content extra>
-                    <span>
-                        <Icon name='like' />
-                        {project.likes}
-                    </span>
+                    <Icon name='like'/>
+                    <span>{project.likes}</span>
                     <a href={project.url}><Button className="blue-button">Live Website</Button></a>
                 </Card.Content>
             </Card>

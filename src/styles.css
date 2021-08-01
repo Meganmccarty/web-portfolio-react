@@ -87,9 +87,9 @@ div.ui.centered.cards > div.ui.card {
     align-items: center;
 }
 
-.ui.card>div.extra.content span {
-    margin-left: 0px;
-    margin-right: 15px;
+.ui.card>div.extra.content > a {
+    margin-left: 15px;
+    margin-right: 0px;
 }
 
 main button.ui.button.blue-button {
