@@ -2,6 +2,7 @@ import PhotoCard from './PhotoCard';
 import Projects from './Projects';
 import Skills from './Skills';
 import BlogList from './BlogList';
+import About from './About';
 
 function Body() {
     return (
@@ -10,6 +11,7 @@ function Body() {
             <Projects />
             <Skills />
             <BlogList />
+            <About />
         </main>
     )
 }
