@@ -21,6 +21,8 @@ function BlogList() {
             <BlogCard
                 key={blogPost.title}
                 title={blogPost.title}
+                author={blogPost.author}
+                content={blogPost.content}
                 categories={blogPost.categories}
                 date={blogPost.pubDate}
                 image={blogPost.thumbnail}
