@@ -15,10 +15,7 @@ function ProjectCard({ id, name, image, text, url, likes, tags, onPatch }) {
         }
         fetch(`http://localhost:9393/projects/${id}`, configObj)
             .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                onPatch(data)
-            })
+            .then(data => onPatch(data))
             .catch(error => console.log(error))
     }
 

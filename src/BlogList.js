@@ -9,10 +9,7 @@ function BlogList() {
     useEffect(() => {
         fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@megan-mccarty')
             .then(response => response.json())
-            .then(data => {
-                console.log(data.items)
-                setBlogPosts(data.items)
-            })
+            .then(data => setBlogPosts(data.items))
             .catch(error => console.log(error))
     }, [])
 

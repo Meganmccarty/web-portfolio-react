@@ -9,10 +9,7 @@ function Projects() {
     useEffect(() => {
         fetch('http://localhost:9393/projects')
             .then(response => response.json())
-            .then(data => {
-                console.log(data.projects)
-                setProjects(data.projects)
-            })
+            .then(data => setProjects(data.projects))
             .catch(error => console.log(error))
     }, [])
 
@@ -24,7 +21,6 @@ function Projects() {
                 return project
             }
         })
-        console.log(newProjectArray);
         setProjects(newProjectArray);
     }
 

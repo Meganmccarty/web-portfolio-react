@@ -14,8 +14,6 @@ function Skills() {
             .catch(error => console.log(error))
     }, [])
 
-    console.log(skills);
-
     const displaySkills = skills.map(skill => {
         return (
             <SkillCard
