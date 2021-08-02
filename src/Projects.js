@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Card } from 'semantic-ui-react'
 
+import loadingGIF from './images/loading.gif'
 import ProjectCard from './ProjectCard';
 
 function Projects() {
@@ -39,13 +40,19 @@ function Projects() {
             />
         )
     })
-    
+
     return (
         <>
             <h1 id="Projects">Projects</h1>
-            <Card.Group centered fluid="true">
-                {displayProjects}
-            </Card.Group>
+            {projects[0] === undefined ?
+                <div className="gif-container">
+                    <img className="loading-gif" src={loadingGIF} alt="loading GIF"></img>
+                </div>
+                :
+                <Card.Group centered fluid="true">
+                    {displayProjects}
+                </Card.Group>
+            }
         </>
     )
 }

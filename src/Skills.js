@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import loadingGIF from './images/loading.gif';
 import SkillCard from './SkillCard';
 
 function Skills() {
@@ -27,9 +28,15 @@ function Skills() {
     return (
         <>
             <h1 id="Skills">Skills</h1>
-            <div className="skills">
-                {displaySkills}
-            </div>
+            {skills[0] === undefined ?
+                <div className="gif-container">
+                    <img className="loading-gif" src={loadingGIF} alt="loading GIF"></img>
+                </div>
+                :
+                <div className="skills">
+                    {displaySkills}
+                </div>
+            }
         </>
     )
 }

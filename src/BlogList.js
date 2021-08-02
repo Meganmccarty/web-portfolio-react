@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Card } from 'semantic-ui-react'
 
+import loadingGIF from './images/loading.gif';
 import BlogCard from './BlogCard';
 
 function BlogList() {
@@ -24,18 +25,24 @@ function BlogList() {
                 date={blogPost.pubDate}
                 image={blogPost.thumbnail}
                 url={blogPost.link}
-            />           
+            />
         )
     })
-    
+
     return (
         <>
             <h1 id="Blog">Blog Posts</h1>
-            {/* <Card.Group centered fluid="true"> */}
-            <div className="blog-cards">
-                {displayPosts}
-            {/* </Card.Group> */}
-            </div>
+            {blogPosts[0] === undefined ?
+                <div className="gif-container">
+                    <img className="loading-gif" src={loadingGIF} alt="loading GIF"></img>
+                </div>
+                :
+                /* <Card.Group centered fluid="true"> */
+                < div className="blog-cards">
+                    {displayPosts}
+                </div>
+                /* </Card.Group> */
+            }
         </>
     )
 }
