@@ -140,6 +140,22 @@ main > p {
     margin-right: 50px;
 }
 
+form.ui.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+form.ui.form > .field {
+    width: 75%;
+}
+
+h2 {
+    text-align: center;
+}
+
 footer {
     display: flex;
     flex-direction: row;

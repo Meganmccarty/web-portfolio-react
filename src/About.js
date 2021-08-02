@@ -1,3 +1,5 @@
+import ContactForm from './ContactForm'
+
 function About() {
     return (
         <>
@@ -12,6 +14,8 @@ function About() {
                 If your company is looking for an enthusiatic teamplayer with a passion for learning all things coding,
                 please reach out to me using the form below!
             </p>
+            <h2>Contact Me!</h2>
+            <ContactForm />
         </>
     )
 }
