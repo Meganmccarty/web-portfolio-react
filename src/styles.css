@@ -230,6 +230,12 @@ div.icons {
 	padding: 3px;
 }
 
+@media all and (max-width: 800px) {
+    main > section > img {
+        width: 50%;
+    }
+}
+
 @media all and (max-width: 600px) {
     footer {
         height: 70px;
