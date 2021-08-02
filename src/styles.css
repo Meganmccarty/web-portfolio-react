@@ -138,6 +138,17 @@ main button.ui.button.blue-button:hover {
     width: 100%;
 }
 
+.blog-cards {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.blog-cards > div.ui.card {
+    margin: 20px;
+}
+
 main > p {
     font-size: 20px;
     margin-left: 50px;

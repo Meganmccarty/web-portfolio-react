@@ -31,9 +31,11 @@ function BlogList() {
     return (
         <>
             <h1 id="Blog">Blog Posts</h1>
-            <Card.Group centered fluid="true">
+            {/* <Card.Group centered fluid="true"> */}
+            <div className="blog-cards">
                 {displayPosts}
-            </Card.Group>
+            {/* </Card.Group> */}
+            </div>
         </>
     )
 }
