@@ -28,7 +28,7 @@ function ContactForm() {
             body: JSON.stringify(formData)
         }
 
-        fetch('https://dry-chamber-04725.herokuapp.com/messages', configObj)
+        fetch('http://localhost:9393/messages', configObj)
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(error => console.log(error))

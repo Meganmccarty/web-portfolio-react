@@ -13,7 +13,7 @@ function ProjectCard({ id, name, image, text, url, likes, tags, onPatch }) {
                 'likes': parseInt(likesToPatch)
             })
         }
-        fetch(`https://dry-chamber-04725.herokuapp.com/projects/${id}`, configObj)
+        fetch(`http://localhost9393/projects/${id}`, configObj)
             .then(response => response.json())
             .then(data => onPatch(data))
             .catch(error => console.log(error))
