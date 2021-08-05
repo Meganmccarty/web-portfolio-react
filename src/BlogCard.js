@@ -23,7 +23,18 @@ function BlogCard({ title, author, content, categories, date, image, url }) {
         // are preceded by lowercase letter
         const regExp = new RegExp(/[a-z][A-Z]\b/)
         const improperWordIndex = splitNode.findIndex(element => element.match(regExp))
-        const improperWord = splitNode.find(element => element.match(regExp))
+        const potentialImproperWord = splitNode.find(element => element.match(regExp))
+        let improperWord;
+
+        // ensure any found improper word starts with a lowercase letter (e.g., "CodeX" is proper)
+        if (potentialImproperWord) {
+            console.log(potentialImproperWord.split(""))
+            const improperWordSplit = potentialImproperWord.split("")
+            if (improperWordSplit[0] === improperWordSplit[0].toLowerCase()) {
+                improperWord = potentialImproperWord
+                console.log(improperWord)
+            }
+        }
         
         // if such a word is found
         if (improperWord) {
