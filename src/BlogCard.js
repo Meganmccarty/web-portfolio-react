@@ -28,11 +28,9 @@ function BlogCard({ title, author, content, categories, date, image, url }) {
 
         // ensure any found improper word starts with a lowercase letter (e.g., "CodeX" is proper)
         if (potentialImproperWord) {
-            console.log(potentialImproperWord.split(""))
             const improperWordSplit = potentialImproperWord.split("")
             if (improperWordSplit[0] === improperWordSplit[0].toLowerCase()) {
                 improperWord = potentialImproperWord
-                console.log(improperWord)
             }
         }
         
