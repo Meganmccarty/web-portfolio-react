@@ -152,6 +152,7 @@ main button.ui.button.blue-button:hover {
 .blog-cards {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
 }
