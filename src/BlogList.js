@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Card } from 'semantic-ui-react'
+// import { Card } from 'semantic-ui-react'
 
 import loadingGIF from './images/loading.gif';
 import BlogCard from './BlogCard';
