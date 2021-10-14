@@ -28,11 +28,9 @@ function BlogCard({ title, author, content, categories, date, image, url }) {
         function findBadWord() {
             const badWordRegex = new RegExp(/\w[a-z][A-Z]/);
             const improperWords = first25.filter(word => word.match(badWordRegex));
-            const improperWord = improperWords.filter(word => {
-                if (word !== "JavaScript" && word !== "PostgreSQL") {
-                    return word;
-                };
-            });
+            const improperWord = improperWords.filter(word =>
+                (word !== "JavaScript" && word !== "PostgreSQL" ? word : null)
+            );
 
             return improperWord;
         };
