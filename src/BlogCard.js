@@ -16,91 +16,44 @@ function BlogCard({ title, author, content, categories, date, image, url }) {
     // it also removes the image caption if a post starts with an image
     function shortenText(text, startingPoint, maxLength) {
 
-        // split text content into array of words
+        // split text content into array of words, grab first 25 words
         let splitNode = text.split(" ");
         let first25 = splitNode.slice(0, 25);
-        console.log(first25);
 
-        // find first index of word and actual word that end in uppercase letter and
-        // are preceded by lowercase letter
-        const regExp = new RegExp(/\w[a-z][A-Z]/);
-        const potentialImproperWords = first25.filter(element => element.match(regExp))
-        const potentialImproperWord = potentialImproperWords.filter(element => {
-            if (element !== "JavaScript" && element !== "PostgreSQL") {
-                return element
-            }
-        })
-        
-        const improperWordIndex = first25.findIndex(element => element.match(potentialImproperWord))
+        // bad word and bad word's index
+        let improperWord = findBadWord();
+        let improperWordIndex = first25.findIndex(word => word.match(improperWord));
 
-        console.log(potentialImproperWord)
-        console.log(improperWordIndex)
+        // find the bad word
+        function findBadWord() {
+            const badWordRegex = new RegExp(/\w[a-z][A-Z]/);
+            const improperWords = first25.filter(word => word.match(badWordRegex));
+            const improperWord = improperWords.filter(word => {
+                if (word !== "JavaScript" && word !== "PostgreSQL") {
+                    return word;
+                };
+            });
 
-        let improperWord;
+            return improperWord;
+        };
 
+        // if a bad word exists, remove the words preceeding it (the image caption)
         if (improperWordIndex !== 0) {
             const capLetterRegex = new RegExp(/[A-Z]/);
-            const word = potentialImproperWord[0].split("");
-            const capLetter = word.find(element => element.match(capLetterRegex))
-            const capLetterIndex = word.findIndex(element => element.match(capLetter))
-            const splicedWord = word.slice([capLetterIndex])
-            const correctWord = splicedWord.join("");
-            
-            console.log("to string: ", word)
-            console.log("cap letter: ", capLetter)
-            console.log("capLetterIndex: ", capLetterIndex)
-            console.log("correct word: ", correctWord)
+
+            const word = improperWord[0].split("");
+            const capLetter = word.find(el => el.match(capLetterRegex));
+            const capLetterIndex = word.findIndex(el => el.match(capLetter));
+            const correctWord = word.slice([capLetterIndex]).join("");
 
             const captionGone = splitNode.splice([improperWordIndex + 1], maxLength);
 
             captionGone.splice(0, 0, correctWord);
-            text = captionGone.join(" ")
+            text = captionGone.join(" ");
+        };
 
-            // return the text content parred down
-            return text.length > maxLength ?
-                text.slice(startingPoint, maxLength) :
-                text
-
-        } else {
-            return text.length > maxLength ?
-                text.slice(startingPoint, maxLength) :
-                text
-        }
-
-        // ensure any found improper word starts with a lowercase letter (e.g., "CodeX" is proper)
-        // if (potentialImproperWord) {
-        //     const improperWordSplit = potentialImproperWord.split("")
-        //     if (improperWordSplit[0] === improperWordSplit[0].toLowerCase()) {
-        //         improperWord = potentialImproperWord
-        //     }
-        // }
-
-        // if such a word is found
-    //     if (improperWord) {
-            
-    //         // split the word, save the last uppercase letter
-    //         const improperWordSplit = improperWord.split("")
-    //         const lastOkLetter = improperWordSplit[improperWordSplit.findIndex(element => element.match(new RegExp(/[A-Z]/)))];
-
-    //         // remove everything (including the found word) that comes before the found word
-    //         const captionGone = splitNode.splice([improperWordIndex + 1], maxLength);
-            
-    //         // add back in the saved uppercase letter, join the words back into string of text
-    //         captionGone.splice(0, 0, lastOkLetter);
-    //         text = captionGone.join(" ")
-
-    //         // return the text content parred down
-    //         return text.length > maxLength ?
-    //             text.slice(startingPoint, maxLength) :
-    //             text
-        
-    //     // if no such word is found that ends in uppercase letter and preceded by lowercase letter
-    //     // just return parred-down text content
-    //     } else {
-    //         return text.length > maxLength ?
-    //             text.slice(startingPoint, maxLength) :
-    //             text
-    //     }
+        // return the text content parred down
+        return text.length > maxLength ? text.slice(startingPoint, maxLength) : text;
     }
 
     return (
