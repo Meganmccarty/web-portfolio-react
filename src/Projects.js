@@ -34,6 +34,7 @@ function Projects() {
                 image={project.image}
                 text={project.text}
                 url={project.url}
+                demo={project.demo}
                 likes={project.likes}
                 tags={project.tags}
                 onPatch={handlePatch}

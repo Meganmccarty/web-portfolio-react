@@ -1,6 +1,6 @@
 import { Card, Icon, Image } from 'semantic-ui-react'
 
-function ProjectCard({ id, name, image, text, url, likes, tags, onPatch }) {
+function ProjectCard({ id, name, image, text, url, demo, likes, tags, onPatch }) {
 
     function handleClick(e) {
         let likesToPatch = parseInt(e.target.nextSibling.innerText, 10) + 1;
@@ -42,6 +42,7 @@ function ProjectCard({ id, name, image, text, url, likes, tags, onPatch }) {
                 <Icon name='like' onClick={(e) => handleClick(e)} />
                 <span>{likes}</span>
                 <a href={url}><button className="ui button blue-button">Live Website</button></a>
+                {demo ? <a href={demo}><button className="ui button blue-button">Demo</button></a> : null}
             </Card.Content>
         </Card>
     )
